@@ -594,7 +594,7 @@ checksum = "212d0f5754cb6769937f4501cc0e67f4f4483c8d2c3e1e922ee9edbe4ab4c7c0"
 
 [[package]]
 name = "dnglab"
-version = "0.6.1"
+version = "0.6.3"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -609,7 +609,7 @@ dependencies = [
  "futures",
  "hex",
  "image 0.25.1",
- "itertools 0.12.0",
+ "itertools 0.13.0",
  "log",
  "prettytable-rs",
  "rawler",
@@ -623,7 +623,7 @@ dependencies = [
 
 [[package]]
 name = "dnglab_lib"
-version = "0.6.0"
+version = "0.6.2"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -1142,6 +1142,15 @@ name = "itertools"
 version = "0.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "25db6b064527c5d482d0423354fcd07a89a2dfe07b67892e62411946db7f07b0"
+dependencies = [
+ "either",
+]
+
+[[package]]
+name = "itertools"
+version = "0.13.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "413ee7dfc52ee1a4949ceeb7dbc8a33f2d6c088194d9f922fb8318faf1f01186"
 dependencies = [
  "either",
 ]
@@ -1777,7 +1786,7 @@ dependencies = [
 
 [[package]]
 name = "rawler"
-version = "0.6.1"
+version = "0.6.3"
 dependencies = [
  "async-trait",
  "backtrace",
@@ -1791,9 +1800,9 @@ dependencies = [
  "futures",
  "glob",
  "hex",
- "image",
+ "image 0.24.7",
+ "itertools 0.13.0",
  "instant",
- "itertools 0.12.0",
  "lazy_static 1.4.0",
  "libc",
  "libflate",

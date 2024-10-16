@@ -111,7 +111,7 @@ impl<'a> Decoder for DngDecoder<'a> {
   }
 
   fn thumbnail_image(&self, file: &mut RawFile) -> Result<Option<DynamicImage>> {
-    if let Some(thumb_ifd) = Some(self.tiff.root_ifd()).filter(|ifd| ifd.get_entry(TiffCommonTag::NewSubFileType).map(|entry| entry.force_u16(0)) == Some(1)) {
+    if let Some(thumb_ifd) = Some(self.tiff.root_ifd()).filter(|ifd| ifd.get_entry(TiffCommonTag::NewSubFileType).map(|entry| entry.force_u32(0)) == Some(1)) {
       let buf = thumb_ifd
         .strip_data(file.inner())
         .map_err(|e| RawlerError::DecoderFailed(format!("Failed to get strip data: {}", e)))?
@@ -134,10 +134,10 @@ impl<'a> Decoder for DngDecoder<'a> {
   }
 
   fn full_image(&self, file: &mut RawFile) -> Result<Option<DynamicImage>> {
-    if let Some(sub_ifds) = self.tiff.root_ifd().get_sub_ifds(TiffCommonTag::SubIFDs) {
+    if let Some(sub_ifds) = self.tiff.root_ifd().get_sub_ifd_all(TiffCommonTag::SubIFDs) {
       let first_ifd = sub_ifds
         .iter()
-        .find(|ifd| ifd.get_entry(TiffCommonTag::NewSubFileType).map(|entry| entry.force_u16(0)) == Some(1));
+        .find(|ifd| ifd.get_entry(TiffCommonTag::NewSubFileType).map(|entry| entry.force_u32(0)) == Some(1));
       if let Some(preview_ifd) = first_ifd {
         let buf = preview_ifd
           .strip_data(file.inner())
@@ -168,14 +168,14 @@ impl<'a> Decoder for DngDecoder<'a> {
       WellKnownIFD::Exif => self
         .tiff
         .root_ifd()
-        .get_sub_ifds(ExifTag::ExifOffset)
+        .get_sub_ifd_all(ExifTag::ExifOffset)
         .and_then(|list| list.get(0))
         .cloned()
         .map(Rc::new),
       WellKnownIFD::ExifGps => self
         .tiff
         .root_ifd()
-        .get_sub_ifds(ExifTag::GPSInfo)
+        .get_sub_ifd_all(ExifTag::GPSInfo)
         .and_then(|list| list.get(0))
         .cloned()
         .map(Rc::new),
@@ -190,6 +190,12 @@ impl<'a> Decoder for DngDecoder<'a> {
         IFD::copy_tag(&mut ifd, self.get_raw_ifd()?, DngTag::AntiAliasStrength);
         IFD::copy_tag(&mut ifd, self.get_raw_ifd()?, DngTag::NoiseReductionApplied);
         IFD::copy_tag(&mut ifd, self.get_raw_ifd()?, DngTag::ProfileGainTableMap);
+        IFD::copy_tag(&mut ifd, self.get_raw_ifd()?, DngTag::CameraCalibration1);
+        IFD::copy_tag(&mut ifd, self.get_raw_ifd()?, DngTag::CameraCalibration2);
+        IFD::copy_tag(&mut ifd, self.get_raw_ifd()?, DngTag::CameraCalibration3);
+        IFD::copy_tag(&mut ifd, self.get_raw_ifd()?, DngTag::ForwardMatrix1);
+        IFD::copy_tag(&mut ifd, self.get_raw_ifd()?, DngTag::ForwardMatrix2);
+        IFD::copy_tag(&mut ifd, self.get_raw_ifd()?, DngTag::ForwardMatrix3);
         Some(Rc::new(ifd))
       }
       WellKnownIFD::VirtualDngRootTags => {

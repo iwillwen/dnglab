@@ -76,12 +76,17 @@ cameras/Canon/EOS M6 Mark II/raw_modes
 cameras/Canon/EOS M6/raw_modes
 cameras/Canon/EOS M/raw_modes
 cameras/Canon/EOS R5/raw_modes
+cameras/Canon/EOS R5 Mark II/raw_modes
+cameras/Canon/EOS R5 Mark II/crm_movie_modes
+cameras/Canon/EOS R5 C/raw_modes
+cameras/Canon/EOS R5 C/crm
 cameras/Canon/EOS R6/raw_modes
 cameras/Canon/EOS R6 Mark II/raw_modes
 cameras/Canon/EOS R7/raw_modes
 cameras/Canon/EOS R8/raw_modes
 cameras/Canon/EOS R10/raw_modes
 cameras/Canon/EOS R50/raw_modes
+cameras/Canon/EOS R100/raw_modes
 cameras/Canon/EOS Rebel SL1/raw_modes
 cameras/Canon/EOS Rebel SL2/raw_modes
 cameras/Canon/EOS Rebel SL3/raw_modes
@@ -391,6 +396,7 @@ cameras/Sony/SLT-A99/raw_modes
 cameras/Sony/ZV-1/raw_modes
 cameras/Sony/ZV-E1/raw_modes
 cameras/Sony/ZV-E10/raw_modes
+cameras/Sony/ZV-E10M2/raw_modes
 cameras/Epson/R-D1/raw_modes
 cameras/Epson/R-D1s/raw_modes
 cameras/Epson/R-D1x/raw_modes
@@ -530,6 +536,7 @@ cameras/Panasonic/DC-G90/raw_modes
 cameras/Panasonic/DC-G91/raw_modes
 cameras/Panasonic/DC-G95/raw_modes
 cameras/Panasonic/DC-G9/raw_modes
+cameras/Panasonic/DC-G9M2/raw_modes
 cameras/Panasonic/DC-GF10/raw_modes
 cameras/Panasonic/DC-GH5M2/raw_modes
 cameras/Panasonic/DC-GH5/raw_modes
@@ -553,6 +560,7 @@ cameras/Panasonic/DC-TZ90/raw_modes
 cameras/Panasonic/DC-TZ91/raw_modes
 cameras/Panasonic/DC-TZ95/raw_modes
 cameras/Panasonic/DC-TZ96/raw_modes
+cameras/Panasonic/DC-TZ220D/raw_modes
 cameras/Panasonic/DMC-CM1/raw_modes
 cameras/Panasonic/DMC-FX150/raw_modes
 cameras/Panasonic/DMC-FZ1000/raw_modes
@@ -741,6 +749,7 @@ cameras/Fujifilm/X-T3/raw_modes
 cameras/Fujifilm/X-T4/raw_modes
 cameras/Fujifilm/X-T4/compressed
 cameras/Fujifilm/X-T5/raw_modes
+cameras/Fujifilm/X-T50/raw_modes
 cameras/OM/OM-1/raw_modes
 cameras/OM/OM-1 Mark II/raw_modes
 cameras/OM/OM-5/raw_modes

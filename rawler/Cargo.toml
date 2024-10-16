@@ -13,7 +13,7 @@ license = "LGPL-2.1"
 name = "rawler"
 repository = "https://github.com/dnglab/dnglab"
 rust-version = "1.70"
-version = "0.6.1"
+version = "0.6.3"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -39,7 +39,7 @@ enumn = "0.1"
 futures = "0.3"
 hex = "0.4"
 image = "0.24"
-itertools = "0.12"
+itertools = "0.13"
 lazy_static = "1"
 libc = "0.2"
 libflate = "2.0"
